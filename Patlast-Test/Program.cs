@@ -4,8 +4,11 @@ using Patlast_Core;
 
 Console.WriteLine();
 
-var project = PatlastApi.CreateProject("test", "C:\\\\XYZ");
+var project = PatlastApi.CreateProject("test", "C:\\\\Users\\\\carte\\\\Pictures\\\\test");
 project.AddImageFromPath("a.png");
+project.AddImageFromPath("b.png");
+project.AddImageFromPath("c.png");
+project.ExportAsGroups("C:\\\\Users\\\\carte\\\\Pictures\\\\output");
 
 // project.AddImage("a.png"); // size 16x16
 // project.AddImage("b.png"); // size 16x16

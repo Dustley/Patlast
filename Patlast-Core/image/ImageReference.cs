@@ -11,16 +11,28 @@ public class ImageReference
     public string GetHandle() => _handle;
     
     private string _filePath;
-    public void SetFilePath(string newPath) => _filePath = newPath;
+    public void SetFilePath(string newPath)
+    {
+        _filePath = newPath;
+        OnUpdate();
+    } 
     public string GetFilePath() => _filePath;
     
+    private MagickImage _backendInstance;
+    public MagickImage GetBackendInstance() => _backendInstance;
+    
+    // Constructors
+    public ImageReference(string filePath) : this(new FileInfo(filePath).Name, filePath) {}
     public ImageReference(string handle, string filePath)
     {
         _handle = handle;
         _filePath = filePath;
-        
-        var backendInstance = new MagickImage(new FileInfo(filePath));
+        OnUpdate();
     }
 
-    public ImageReference(string filePath) : this(new FileInfo(filePath).Name, filePath) {}
+    public void OnUpdate()
+    {
+        _backendInstance = new MagickImage(new FileInfo(_filePath));
+    }
+    
 }
