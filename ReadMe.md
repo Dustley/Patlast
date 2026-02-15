@@ -29,13 +29,6 @@ Patlast also supports diffrent ways of managing your atlas, such as:
 | [Github]([https://github.com/Dustley/Patlast]) | A version control handler and website. |
 | [Jira](https://carteryackovich.atlassian.net/jira/software/projects/SMS/boards/1?atlOrigin=eyJpIjoiYmQyZDAyYjUyZTBiNDY5MGE5NDM3NTZlZWI3OTllMzciLCJwIjoiaiJ9) | A ticket manager. |
 
-
 ## Getting started
 
 Patlast requires [.NET](https://dotnet.microsoft.com/en-us/download/dotnet) v10+ to run.
-
-## License
-
-MIT
-
-**I would be very thankful for users to credit me, but its not required.**
