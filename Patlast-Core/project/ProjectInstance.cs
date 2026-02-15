@@ -16,17 +16,15 @@ public class ProjectInstance(string projectName, string projectPath)
     private string _projectPath = projectPath;
     public string GetProjectPath() => _projectPath;
     public void SetProjectPath(string name) => _projectPath = name;
-    public string GetCombinedPath(string filePath) => Path.Combine(_projectPath, filePath);
+    private string GetCombinedPath(string filePath) => Path.Combine(_projectPath, filePath);
     
     private readonly List<ImageReference> _imageReferences = new();
     
-    // Image handling
+    // Single image adding
     public void AddImageFromPath(string filePath) => AddImage(new ImageReference(GetCombinedPath(filePath)));
-    public void AddImage(ImageReference image)
-    {
-        _imageReferences.Add(image);
-    }
+    public void AddImage(ImageReference image) => _imageReferences.Add(image);
 
+    // Packing
     public ImagePackage PackSingle(string handle, IImagePacker packer) => new(handle, packer.PackImages(_imageReferences));
     public List<ImagePackage> PackGroups(string handlePrefix, IImagePacker packer)
     {

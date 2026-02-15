@@ -4,6 +4,11 @@ namespace Patlast_Core.pack;
 
 public class ImagePackingTools
 {
+    /// <summary>
+    /// Splits a large list of unsorted images into a handful of groups split by powers of 2.
+    /// </summary>
+    /// <param name="unsortedImages"> The list of image references being split up. </param>
+    /// <returns> A Dictionary with the key being the group size and the value being the images in that group. </returns>
     public static Dictionary<int, List<ImageReference>> CalculateImageGroups(List<ImageReference> unsortedImages)
     {
         var groups = new Dictionary<int, List<ImageReference>>();
