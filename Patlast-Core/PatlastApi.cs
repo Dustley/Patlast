@@ -1,9 +1,12 @@
-﻿namespace Patlast_Core;
+﻿using Patlast_Core.Project;
+
+namespace Patlast_Core;
 
 public class PatlastApi
 {
-    public static void Test()
-    {
-        
-    }
+    ////////////////////////
+    // Project management //
+    ////////////////////////
+    public static ProjectInstance CreateProject(string projectName, string projectPath) => new(projectName, projectPath);
+    
 }
