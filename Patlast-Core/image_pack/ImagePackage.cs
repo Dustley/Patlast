@@ -1,4 +1,6 @@
-﻿using Patlast_Core.image;
+﻿using System.Drawing;
+using ImageMagick;
+using Patlast_Core.image;
 
 namespace Patlast_Core.pack;
 
@@ -30,5 +32,22 @@ public class ImagePackage(string handle, ImagePackData packData)
             if (packDataImageReference.GetHandle() == reference.GetHandle()) return i;
         }
         return -1;
+    }
+
+    public string ExportToFile(string folderPath, MagickFormat format)
+    {
+        var totalPath = Path.Combine(folderPath, $"{_handle}.{format}");
+        var exportImage = new MagickImage(MagickColors.Transparent, (uint) _packData.Width, (uint) _packData.Height);
+        exportImage.Format = format;
+        
+        for (var imageIndex = 0; imageIndex < _packData.ImageReferences.Length; imageIndex++)
+        {
+            var imageReference = _packData.ImageReferences[imageIndex];
+            var position = _packData.PositionsA[imageIndex];
+            exportImage.Composite(imageReference.GetBackendInstance(), position.Item1,  position.Item2, CompositeOperator.Over);
+        }
+        
+        exportImage.Write(totalPath);
+        return totalPath;
     }
 }
