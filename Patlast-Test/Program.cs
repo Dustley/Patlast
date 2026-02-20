@@ -11,8 +11,8 @@ project.AddImageFromPath("d.png");
 project.AddImageFromPath("e.png");
 project.AddImageFromPath("f.png");
 
-var imagePacker = new FlatImagePacker(false);
-var packs = project.PackGroups("hellox", imagePacker);
+var imagePacker = new GridImagePacker();
+var packs = project.PackGroups("hello-x", imagePacker);
 
 foreach (var pack in packs)
 {
