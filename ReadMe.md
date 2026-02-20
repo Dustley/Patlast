@@ -32,3 +32,8 @@ Patlast also supports diffrent ways of managing your atlas, such as:
 ## Getting started
 
 Patlast requires [.NET](https://dotnet.microsoft.com/en-us/download/dotnet) v10+ to run.
+
+## Management
+For this project I decided to try out jira so heres the workspace for that.
+
+![Jira](github-images/Jira.png)
